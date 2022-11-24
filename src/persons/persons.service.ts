@@ -32,16 +32,16 @@ export class PersonsService {
         return lastPerson.id + 1;
     }
 
-    getAll() {
+    getAll(): Array<Person> {
 
         return this.listOfPersons;
 
     }
 
-    add(newPerson: Person) {
+    add(newPerson: Person): Person {
         newPerson.id = this.generateId();
         this.listOfPersons.push(newPerson);
         return newPerson;
     }
-
+    
 }
