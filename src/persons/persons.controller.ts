@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/common";
-import { Cat } from "./cat.model";
-import { Person } from "./person.model";
+import { Cat } from "./cat.entity";
+import { Person } from "./person.entity";
 import { PersonsService } from "./persons.service";
 
 
