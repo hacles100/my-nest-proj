@@ -38,7 +38,19 @@ export class PersonsService {
 
     }
 
+    getId(id: number): Person{
+
+        for(let person of this.listOfPersons){
+            if(person.id == id){
+
+                return person
+            }
+        }
+       
+    }
+
     add(newPerson: Person): Person {
+        
         newPerson.id = this.generateId();
         this.listOfPersons.push(newPerson);
         return newPerson;
@@ -55,19 +67,33 @@ export class PersonsService {
 
 
     delete(id: number): void {
-        for (let pos in this.listOfPersons) {
+    
+
+        for ( let pos:number = 0; pos < this.listOfPersons.length; pos++) {
 
             const personId = this.listOfPersons[pos].id;
 
             if (personId == id) {
+
+                // let pos: number
                 this.listOfPersons.splice(pos, 1);
+                return
             }
         }
 
     }
 
-    update(id: number, updatedData: Person) {
+    update(id: number, updatedData: Person): Person {
 
+
+        for(let person of this.listOfPersons){
+
+            if(person.id == id){
+                person.name = updatedData.name
+                person.phone = updatedData.phone
+                return person
+            }
+        }
     }
 
     

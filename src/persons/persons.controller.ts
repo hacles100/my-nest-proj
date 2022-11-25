@@ -23,13 +23,16 @@ export class PersonsController {
 
     @Put(':id')
     update(@Param('id') id: number, @Body() updatedData: Person) {
+        return this.personsService.update(id, updatedData)
     }
 
     @Get(':id')
     getOne(@Param('id') id: number) {
+        return this.personsService.getId(id)
     }
 
     @Delete(':id')
     delete(@Param('id') id: number) {
+        return this.personsService.delete(id)
     }
 }
