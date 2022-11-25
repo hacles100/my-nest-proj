@@ -4,7 +4,7 @@ import { Person } from "./person.entity";
 @Injectable()
 export class PersonsService {
 
-    listOfPersons = [
+    listOfPersons: Array<Person> = [
         {
             id: 11,
             name: "Game of Thrones",
@@ -43,5 +43,32 @@ export class PersonsService {
         this.listOfPersons.push(newPerson);
         return newPerson;
     }
+
+    get(id: number): Person {
+        for (let person of this.listOfPersons) {
+            if (person.id == id) {
+                return person;
+            }
+        }
+        return null;
+    }
+
+
+    delete(id: number): void {
+        for (let pos in this.listOfPersons) {
+
+            const personId = this.listOfPersons[pos].id;
+
+            if (personId == id) {
+                this.listOfPersons.splice(pos, 1);
+            }
+        }
+
+    }
+
+    update(id: number, updatedData: Person) {
+
+    }
+
     
 }
