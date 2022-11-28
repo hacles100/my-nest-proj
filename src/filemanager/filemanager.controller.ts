@@ -21,7 +21,7 @@ export class FilemanagerController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.filemanagerService.findOne(+id);
+    return this.filemanagerService.findOne(id);
   }
 
   @Put(':filename')
@@ -29,8 +29,8 @@ export class FilemanagerController {
     return this.filemanagerService.update(filename, updateFilemanagerDto.content);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.filemanagerService.remove(+id);
+  @Delete(':filename')
+  remove(@Param('filename') filename: string) {
+    return this.filemanagerService.remove(filename);
   }
 }
